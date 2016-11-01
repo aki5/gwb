@@ -1,0 +1,14 @@
+set list = ($argv[2-])
+@ n = 0
+foreach f ($argv[2-])
+echo cc -c -g $f
+cc -c -g $f
+@ n++
+set list[$n] = ${f:r}.o
+end
+ar r $1 $list[1-]
+echo ar r $1 $list[1-]
+ranlib $1
+echo ranlib $1
+rm $list[1-]
+echo rm $list[1-]
